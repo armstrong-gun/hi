@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .warp {
+            width: 400px;
+            margin: 50px auto;
+        }
+        
+        button {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warp">
+        <form class="formbox">
+            <h2>欢迎登陆</h2>
+            <div class="form-group">
+                <label for="exampleInputEmail1">用户名</label>
+                <input type="text" class="form-control" id="username" placeholder="请输入你的用户名">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">密码</label>
+                <input type="password" class="form-control" id="password" placeholder="请输入你的密码">
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> 同意条款
+                </label>
+            </div>
+            <button type="button" class="btn btn-success btn btn-default btn-lg">提交</button>
+
+        </form>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        var $username = $('#username');
+        var $password = $('#password');
+        var $btn = $('.btn');
+        // console.log($username);
+
+        $btn.click(function() {
+            var params = {
+                username: $username.val(),
+                password: $password.val()
+            }
+            console.log(params.username, params.password);
+            $.post('login.php', params, function() {
+                location.href = 'manager.php'
+            }, 'json')
+        })
+    </script>
+</body>
+
+</html>

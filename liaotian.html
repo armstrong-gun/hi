@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function ajax() {
+            var xhr = new XMLHttpRequest;
+            xhr.open('GET', 'http://www.tuling123.com/openapi/api', true);
+            xhr.send(null);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var json = xhr.responseText;
+                    console.log(json);
+
+                }
+            }
+        }
+        ajax();
+    </script>
+</body>
+
+</html>
