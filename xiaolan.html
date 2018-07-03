@@ -56,8 +56,14 @@
                 password: $password.val()
             }
             console.log(params.username, params.password);
-            $.post('login.php', params, function() {
-                location.href = 'manager.php'
+            $.post('login.php', params, function(json) {
+                //     // location.href = 'manager.php'
+                // console.log(json);
+                if (json.code == 0) {
+                    location.href = 'manager.html'
+                } else {
+                    alert('用户名或密码错误')
+                }
             }, 'json')
         })
     </script>
